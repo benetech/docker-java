@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 # Add webupd8team ppa
-RUN	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu e main" | \
+RUN	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | \
 		tee /etc/apt/sources.list.d/webupd8team-java-trusty.list && \
 	echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | \
 		tee -a /etc/apt/sources.list.d/webupd8team-java-trusty.list && \
