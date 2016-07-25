@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 # Add webupd8team ppa
 RUN	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | \
