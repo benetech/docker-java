@@ -2,14 +2,16 @@ FROM ubuntu:16.04
 
 MAINTAINER Ron Ellis <rone@benetech.org>
 
-ENV JAVA_HOME /opt/java-8-oracle
+ARG BASE_NAME jdk-8-oracle
+# pass this in with ie "docker build --build-arg JAVA_UPDATE=131"
+ARG JAVA_UPDATE
+ARG JAVA_URL="https://artifactory.benetech.org/ext-releases-local/jdk-8u${JAVA_UPDATE}-linux-x64.tar.gz"
 
-ARG JAVA_URL="https://artifactory.benetech.org/ext-releases-local/jdk-8u131-linux-x64.tar.gz"
-
-ADD $JAVA_URL /tmp/java-8-oracle.tar.gz
+ADD $JAVA_URL /tmp/$BASE_NAME.tar.gz
 
 RUN apt-get update -qy \
-    && mkdir /opt/java-8-oracle \
-    && tar -zxf /tmp/java-8-oracle.tar.gz -C /opt/java-8-oracle
+    && mkdir /opt/$BASE_NAME \
+    && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt/$BASE_NAME
 
-ENV PATH /opt/java-8-oracle:$PATH
+ENV JAVA_HOME /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}
+ENV PATH /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}:$PATH
