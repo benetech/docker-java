@@ -10,7 +10,7 @@ RUN	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | \
 		/usr/bin/debconf-set-selections
 
 RUN	apt-get update \
-	&& apt-get --yes install oracle-java8-installer \
+	&& apt-get --yes install oracle-java8-installer=8u131-1~webupd8~2 \
 	&& apt-get --yes autoclean
         
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
