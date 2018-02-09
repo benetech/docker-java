@@ -13,7 +13,7 @@ ADD $JAVA_URL $JAVA_TEMP_FILE
 RUN apt-get update -qy \
     && mkdir /opt/$BASE_NAME \
     && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt/$BASE_NAME \
-    && $JAVA_TEMP_FILE 
+    && rm $JAVA_TEMP_FILE 
 
 ENV JAVA_HOME /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}
 ENV PATH /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}/bin:$PATH
