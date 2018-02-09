@@ -1,16 +1,12 @@
 FROM ubuntu:16.04
 
-# Add webupd8team ppa
-RUN	echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | \
-		tee /etc/apt/sources.list.d/webupd8team-java-trusty.list && \
-	echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | \
-		tee -a /etc/apt/sources.list.d/webupd8team-java-trusty.list && \
-	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886 && \
-	echo oracle-java6-installer shared/accepted-oracle-license-v1-1 select true | \
-		/usr/bin/debconf-set-selections
+MAINTAINER Ron Ellis <rone@benetech.org>
 
-RUN	apt-get update \
-	&& apt-get --yes install 'oracle-java8-installer=8u131-1~webupd8~2' \
-	&& apt-get --yes autoclean
-        
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+ENV JAVA_HOME /opt/java-8-oracle
+ENV PATH /opt/java-8-oracle
+
+ARG JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.tar.gz"
+
+RUN curl -L -O -o /tmp/java-8-oracle.tar.gz -H "Cookie: oraclelicense=accept-securebackup-cookie" $JAVA_URL \
+    && mkdir /opt/java-8-oracle \
+    && tar -xf /tmp/java-8-oracle.tar.gz -C /opt/java-8-oracle
