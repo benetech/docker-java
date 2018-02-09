@@ -14,4 +14,4 @@ RUN apt-get update -qy \
     && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt/$BASE_NAME
 
 ENV JAVA_HOME /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}
-ENV PATH /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}:$PATH
+ENV PATH /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}/bin:$PATH
