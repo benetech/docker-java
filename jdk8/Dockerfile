@@ -4,7 +4,7 @@ MAINTAINER Ron Ellis <rone@benetech.org>
 
 ENV JAVA_HOME /opt/java-8-oracle
 
-ARG JAVA_URL="http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.tar.gz"
+ARG JAVA_URL="https://artifactory.benetech.org/ext-releases-local/jdk-8u131-linux-x64.tar.gz"
 ARG BUILDTIME_DEPS="curl"
 
 RUN apt-get update -qy \
