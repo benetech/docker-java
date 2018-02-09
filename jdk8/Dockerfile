@@ -11,9 +11,8 @@ ARG JAVA_TEMP_FILE="/tmp/$BASE_NAME.tar.gz"
 ADD $JAVA_URL $JAVA_TEMP_FILE 
 
 RUN apt-get update -qy \
-    && mkdir /opt/$BASE_NAME \
-    && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt/$BASE_NAME \
+    && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt \
     && rm $JAVA_TEMP_FILE 
 
-ENV JAVA_HOME /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}
-ENV PATH /opt/$BASE_NAME/jdk1.8.0_${JAVA_UPDATE}/bin:$PATH
+ENV JAVA_HOME /opt/jdk1.8.0_$JAVA_UPDATE
+ENV PATH /opt/jdk1.8.0_$JAVA_UPDATE/bin:$PATH
