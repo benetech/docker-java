@@ -7,7 +7,7 @@ ARG JAVA_TYPE=jdk
 ARG BASE_NAME=${JAVA_TYPE}-8-oracle
 # string for the update number ie 144 
 ARG JAVA_UPDATE=144
-ARG JAVA_URL="https://artifactory.benetech.org/ext-releases-local/${BASE_TYPE}-8u$JAVA_UPDATE-linux-x64.tar.gz"
+ARG JAVA_URL="https://artifactory.benetech.org/ext-releases-local/${JAVA_TYPE}-8u${JAVA_UPDATE}-linux-x64.tar.gz"
 ARG JAVA_TEMP_FILE="/tmp/$BASE_NAME.tar.gz"
 
 ADD $JAVA_URL $JAVA_TEMP_FILE 
