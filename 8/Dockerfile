@@ -16,5 +16,5 @@ RUN apt-get update -qy \
     && tar -zxf /tmp/$BASE_NAME.tar.gz -C /opt \
     && rm $JAVA_TEMP_FILE 
 
-ENV JAVA_HOME /opt/${BASE_TYPE}1.8.0_${JAVA_UPDATE}
-ENV PATH /opt/${BASE_TYPE}1.8.0_${JAVA_UPDATE}/bin:$PATH
+ENV JAVA_HOME /opt/${JAVA_TYPE}1.8.0_${JAVA_UPDATE}
+ENV PATH /opt/${JAVA_TYPE}1.8.0_${JAVA_UPDATE}/bin:$PATH
